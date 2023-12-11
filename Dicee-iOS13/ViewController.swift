@@ -12,35 +12,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var diceImageViewOne: UIImageView!
     @IBOutlet weak var diceImageViewTwo: UIImageView!
     
-    var leftDice = 0
-    var rightDice = 5
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-       
-        
-       
-    }
     @IBAction func rollButtonPressed(_ sender: UIButton) {
+        let diceArray =  [UIImage(imageLiteralResourceName: "DiceOne"),
+                          UIImage(imageLiteralResourceName: "DiceTwo"),
+                         UIImage(imageLiteralResourceName: "DiceThree"),
+                         UIImage(imageLiteralResourceName: "DiceFour"),
+                         UIImage(imageLiteralResourceName: "DiceFive"),
+                         UIImage(imageLiteralResourceName: "DiceSix"),
+                         ]
      
-        diceImageViewOne.image = [UIImage(imageLiteralResourceName: "DiceOne"),
-         UIImage(imageLiteralResourceName: "DiceTwo"),
-        UIImage(imageLiteralResourceName: "DiceThree"),
-        UIImage(imageLiteralResourceName: "DiceFour"),
-        UIImage(imageLiteralResourceName: "DiceFive"),
-        UIImage(imageLiteralResourceName: "DiceSix"),
-        ][leftDice]
+        diceImageViewOne.image = diceArray.randomElement()
         
-        diceImageViewTwo.image = [UIImage(imageLiteralResourceName: "DiceOne"),
-                                  UIImage(imageLiteralResourceName: "DiceTwo"),
-                                 UIImage(imageLiteralResourceName: "DiceThree"),
-                                 UIImage(imageLiteralResourceName: "DiceFour"),
-                                 UIImage(imageLiteralResourceName: "DiceFive"),
-                                 UIImage(imageLiteralResourceName: "DiceSix"),
-                                 ][rightDice]
-        leftDice = leftDice + 1
-        rightDice = rightDice - 1
+        diceImageViewTwo.image = diceArray.randomElement()
     }
     
 }
